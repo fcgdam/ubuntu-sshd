@@ -12,6 +12,9 @@ else
     useradd -ms /bin/bash "$SSH_USERNAME"
     echo "$SSH_USERNAME:$SSH_PASSWORD" | chpasswd
     echo "User $SSH_USERNAME created with the provided password"
+    echo "root:ubuntu" | chpasswd
+    echo ""$SSH_USERNAME" ALL=(ALL)  ALL" >> /etc/sudoers
+    usermod -aG "$SSH_USERNAME" sudo
 fi
 
 # Set the authorized keys from the AUTHORIZED_KEYS environment variable (if provided)
@@ -41,3 +44,4 @@ fi
 # Start the SSH server
 echo "Starting SSH server..."
 exec /usr/sbin/sshd -D
+

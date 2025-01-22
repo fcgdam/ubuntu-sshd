@@ -5,6 +5,8 @@
 
 This Docker image provides an Ubuntu 24.04 base with SSH server enabled. It allows you to easily create SSH-accessible containers via SSH keys or with a default username and password.
 
+Also this fork installs sudo, allows root login (it might be a security issue for some people, so beware, with default password ubuntu) and adds the created user to the sudoers group.
+
 ## Usage
 
 ### Cloning the Repository
